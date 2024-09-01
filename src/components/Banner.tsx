@@ -9,7 +9,7 @@ import { Autoplay,Navigation } from "swiper/modules";
 
 const BannerCarousel = () => {
   return (
-    <div className="w-full md:max-w-[1200px] mx-auto">
+    <div className="w-full md:max-w-[1200px] mx-auto " >
       <Swiper
         pagination={{
           clickable: true,
