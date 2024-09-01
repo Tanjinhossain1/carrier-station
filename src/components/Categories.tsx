@@ -76,6 +76,7 @@ export default function Categories() {
       <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-8 shadow bg-white">
         {Data?.slice(0,20)?.map((data, index) => {
           return (
+           <Link href={'/'} key={index}>
             <div className="p-4 hover:shadow-2xl  border" key={index}>
               <Image
                 src={data?.image}
@@ -89,6 +90,7 @@ export default function Categories() {
                 {data?.title}
               </p>
             </div>
+            </Link>
           );
         })}
       </div>

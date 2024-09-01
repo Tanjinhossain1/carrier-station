@@ -53,10 +53,10 @@ const Navbar = () => {
             <a href="#" className="hover:underline hidden md:inline">
               Help & Support
             </a>
-            <a href="#" className="hover:underline hidden md:inline">
+            <a href="/login" className="hover:underline hidden md:inline">
               Login
             </a>
-            <a href="#" className="hover:underline hidden md:inline">
+            <a href="/register" className="hover:underline hidden md:inline">
               Sign Up
             </a>
             <a href="#" className="hover:underline hidden md:inline">

@@ -10,7 +10,7 @@ export default function FlashSale() {
       title: "Flash Sale Product 1",
       price: 299,
       description: "This is a flash sale product",
-      percent: 18,
+      discount: 18,
     },
     {
       image:
@@ -18,7 +18,7 @@ export default function FlashSale() {
       title: "Flash Sale Product 1",
       price: 299,
       description: "This is a flash sale product",
-      percent: 18,
+      discount: 18,
     },
     {
       image:
@@ -26,7 +26,7 @@ export default function FlashSale() {
       title: "Flash Sale Product 1",
       price: 299,
       description: "This is a flash sale product",
-      percent: 18,
+      discount: 18,
     },
     {
       image:
@@ -34,7 +34,7 @@ export default function FlashSale() {
       title: "Flash Sale Product 1",
       price: 299,
       description: "This is a flash sale product",
-      percent: 18,
+      discount: 18,
     },
     {
       image:
@@ -42,7 +42,7 @@ export default function FlashSale() {
       title: "Flash Sale Product 1",
       price: 299,
       description: "This is a flash sale product",
-      percent: 18,
+      discount: 18,
     },
     {
       image:
@@ -50,7 +50,7 @@ export default function FlashSale() {
       title: "Flash Sale Product 1 Flash Sale Product 1 Flash Sale Product 1",
       price: 299,
       description: "This is a flash sale product ",
-      percent: 18,
+      discount: 18,
     }, 
   ];
   return (
@@ -81,9 +81,9 @@ export default function FlashSale() {
               </p>
               <p className="text-orange-500 font-medium">${data?.price}</p>
               <del className="text-gray-500">
-                ${data?.price - (data?.price % data?.percent)}
+                ${data?.price - (data?.price % data?.discount)}
               </del>
-              <span className="ml-1 text-green-600">-{data?.percent}%</span>
+              <span className="ml-1 text-green-600">-{data?.discount}%</span>
             </div>
           );
         })}
