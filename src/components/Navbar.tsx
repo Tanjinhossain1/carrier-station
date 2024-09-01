@@ -74,22 +74,22 @@ const Navbar = () => {
           <h1 className="hidden md:block items-center text-2xl font-bold">
             Carrier Station
           </h1>
-           
-            <div className="flex-1 mx-4 relative ">
-              <input
-                type="text"
-                placeholder="Search Here..."
-                className="w-full   text-black px-4 py-3 rounded pl-16"
-              />
-              <button className="absolute top-0 h-full flex items-center justify-center px-4 focus:outline-none bg-orange-600 hover:bg-orange-500 border border-white rounded-l">
-                <FiSearch className="text-gray-500" />
-              </button>
-            </div>
-            <div className="flex">
-              {" "}
-              <FaCartShopping className="text-3xl" />
-              <sup>0</sup>
-            </div> 
+
+          <div className="flex-1 mx-4 relative ">
+            <input
+              type="text"
+              placeholder="Search Here..."
+              className="w-full   text-black px-4 py-3 rounded pl-16"
+            />
+            <button className="absolute top-0 h-full flex items-center justify-center px-4 focus:outline-none bg-orange-600 hover:bg-orange-500 border border-white rounded-l">
+              <FiSearch className="text-gray-500" />
+            </button>
+          </div>
+          <div className="flex">
+            {" "}
+            <FaCartShopping className="text-3xl" />
+            <sup>0</sup>
+          </div>
         </div>
       </nav>
       {/* mobile device  */}
@@ -107,15 +107,22 @@ const Navbar = () => {
               <FiMenu className="text-2xl" />
             </button>
           </div>
-          <div className="flex-1 mx-4 relative">
-            <input
-              type="text"
-              placeholder="Search Here..."
-              className="w-full md:w-[80%] text-black px-4 py-3 rounded pl-16"
-            />
-            <button className="absolute top-0 h-full flex items-center justify-center px-4 focus:outline-none bg-orange-600 hover:bg-orange-500 border border-white rounded-l">
-              <FiSearch className="text-gray-500" />
-            </button>
+          <div className="flex ">
+            <div className="flex-1 mx-4 relative ">
+              <input
+                type="text"
+                placeholder="Search Here..."
+                className="w-full   text-black px-4 py-3 rounded pl-16"
+              />
+              <button className="absolute top-0 h-full flex items-center justify-center px-4 focus:outline-none bg-orange-600 hover:bg-orange-500 border border-white rounded-l">
+                <FiSearch className="text-gray-500" />
+              </button>
+            </div>
+            <div className="flex mt-3">
+              {" "}
+              <FaCartShopping className="text-3xl" />
+              <sup>0</sup>
+            </div>
           </div>
         </div>
 
