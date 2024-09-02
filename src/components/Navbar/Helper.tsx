@@ -2,12 +2,14 @@
 import { useEffect, useState } from "react";
 import { FiMenu, FiSearch, FiX } from "react-icons/fi"; // Import icons
 import { FaCartShopping } from "react-icons/fa6";
+import { signOut } from "next-auth/react";
+import Link from "next/link";
 
-const Navbar = () => {
+const NavbarHelper = ({ user }: { user: any }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [navbarHeight, setNavbarHeight] = useState(0);
-
+  console.log("user  ", user);
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
@@ -53,12 +55,32 @@ const Navbar = () => {
             <a href="#" className="hover:underline hidden md:inline">
               Help & Support
             </a>
-            <a href="/login" className="hover:underline hidden md:inline">
-              Login
-            </a>
-            <a href="/register" className="hover:underline hidden md:inline">
-              Sign Up
-            </a>
+            {user?.email ? (
+              <>
+                <button
+                  className="block py-2 hover:underline"
+                  onClick={() => signOut()}
+                >
+                  Log Out
+                </button>
+                <button className="block py-2 hover:underline">
+                  <Link href={"/admin"}>Admin</Link>
+                </button>
+              </>
+            ) : (
+              <>
+                {" "}
+                <a href="/login" className="block py-2 hover:underline">
+                  Login
+                </a>
+                <a
+                  href="/register"
+                  className="hover:underline hidden md:inline"
+                >
+                  Sign Up
+                </a>
+              </>
+            )}
             <a href="#" className="hover:underline hidden md:inline">
               Home
             </a>
@@ -148,12 +170,24 @@ const Navbar = () => {
             <a href="#" className="block py-2 hover:underline">
               Help & Support
             </a>
-            <a href="#" className="block py-2 hover:underline">
-              Login
-            </a>
-            <a href="#" className="block py-2 hover:underline">
-              Sign Up
-            </a>
+            {user?.email ? (
+              <>
+                <button onClick={() => signOut()}>Log Out</button>
+                <button>
+                  <Link href={"/admin"}>Admin</Link>
+                </button>
+              </>
+            ) : (
+              <>
+                {" "}
+                <a href="/login" className="block py-2 hover:underline">
+                  Login
+                </a>
+                <a href="#" className="block py-2 hover:underline">
+                  Sign Up
+                </a>
+              </>
+            )}
           </div>
         </div>
 
@@ -169,4 +203,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarHelper;

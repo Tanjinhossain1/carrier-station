@@ -2,7 +2,6 @@ import BannerCarousel from "@/components/Banner";
 import Categories from "@/components/Categories";
 import FlashSale from "@/components/FlashSale";
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
 
 export default function Home() {
   // const loopArray = Array.from({ length: 100 }); // Creates an array with 100 elements
