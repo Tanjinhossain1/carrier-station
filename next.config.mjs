@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      domains: ['img.drz.lazcdn.com'],
+      domains: ['img.drz.lazcdn.com','localhost'],
     },  
   };
   

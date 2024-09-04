@@ -28,12 +28,25 @@ import { Badge } from "@/components/ui/badge";
 import { ResponsiveLine } from "@nivo/line";
 import { HomeIcon } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
-export default function DashboardComponent({children}:{children:any}) {
+export default function DashboardComponent({ children }: { children: any }) {
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setDrawerOpen(!isDrawerOpen);
+  };
+
+  const closeDrawer = () => {
+    setDrawerOpen(false);
+  };
   return (
-    <div className="flex min-h-screen w-full">
+    <div  onClick={(e) => {
+      e.stopPropagation();
+      
+    }} className="flex min-h-screen w-full">
       <aside className="hidden w-64 flex-col border-r bg-background p-4 md:flex">
-        <div className="mb-6 flex items-center gap-2">
+        <div className="mb-6 flex items-center gap-2  ">
           <Package2Icon className="h-6 w-6" />
           <span className="text-lg font-semibold">Admin Dashboard</span>
         </div>
@@ -73,13 +86,18 @@ export default function DashboardComponent({children}:{children:any}) {
         </nav>
       </aside>
       <div className="flex flex-1 flex-col">
-        <header className="sticky top-0 z-10 flex h-14 items-center justify-between border-b bg-background px-4 md:px-6">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="md:hidden">
+        <header className="sticky top-0 z-10 flex h-14 items-center justify-between border-b bg-white px-4 md:px-6">
+          <div className="flex items-center gap-4 ">
+            <Button
+              onClick={toggleDrawer}
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+            >
               <MenuIcon className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
             </Button>
-            <div className="text-lg font-semibold">Admin Dashboard</div>
+            <div className="text-lg   font-semibold">Admin Dashboard</div>
           </div>
           {/* <div className="flex items-center gap-4">
             <DropdownMenu>
@@ -108,8 +126,56 @@ export default function DashboardComponent({children}:{children:any}) {
           </div> */}
         </header>
         {children}
-        
       </div>
+      
+      {isDrawerOpen && (
+        <div className="fixed inset-0 z-20 flex">
+          {/* Overlay */}
+          <div className="flex-1 bg-black opacity-50" onClick={closeDrawer}></div>
+
+          {/* Drawer content */}
+          <div className="w-1/2 bg-white p-4">
+            <div className="mb-6 flex items-center gap-2">
+              <PackageIcon className="h-6 w-6" />
+              <span className="text-xs font-semibold">Admin Dashboard</span>
+            </div>
+            <nav className="flex-1 space-y-2">
+              <Link
+                href="/"
+                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground"
+                prefetch={false}
+              >
+                <HomeIcon className="h-5 w-5" />
+                Home
+              </Link>
+              <Link
+                href="/admin/products"
+                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground"
+                prefetch={false}
+              >
+                <PackageIcon className="h-5 w-5" />
+                Products
+              </Link>
+              <Link
+                href="#"
+                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground"
+                prefetch={false}
+              >
+                <ShoppingCartIcon className="h-5 w-5" />
+                Orders
+              </Link>
+              <Link
+                href="#"
+                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground"
+                prefetch={false}
+              >
+                <SettingsIcon className="h-5 w-5" />
+                Settings
+              </Link>
+            </nav>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
