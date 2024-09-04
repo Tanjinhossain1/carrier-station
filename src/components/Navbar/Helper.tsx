@@ -63,9 +63,12 @@ const NavbarHelper = ({ user }: { user: any }) => {
                 >
                   Log Out
                 </button>
-                <button className="block py-2 hover:underline">
+                {
+                  user?.role === "seller" ? 
+                  <button className="block py-2 hover:underline">
                   <Link href={"/admin"}>Admin</Link>
                 </button>
+                :null}
               </>
             ) : (
               <>
@@ -173,9 +176,12 @@ const NavbarHelper = ({ user }: { user: any }) => {
             {user?.email ? (
               <>
                 <button onClick={() => signOut()}>Log Out</button>
-                <button>
+                {
+                  user?.role === "seller" ? 
+                  <button className="hover:underline">
                   <Link href={"/admin"}>Admin</Link>
                 </button>
+                :null}
               </>
             ) : (
               <>

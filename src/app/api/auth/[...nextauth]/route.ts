@@ -30,8 +30,8 @@ export const authConfig: NextAuthOptions = NextAuth({
             
                     return {
                         id: user.id.toString(),
-                        email: user.email,
                         fullName: user.fullName,
+                        // email: user.email,
                         role: user.role, // Ensure role is included here
                     };
                 }
@@ -43,8 +43,8 @@ export const authConfig: NextAuthOptions = NextAuth({
     callbacks: {
         async jwt({ token, user }: any) {
             if (user) {
-                token.email = user.email;
                 token.fullName = user.fullName;
+                // token.email = user.email;
                 token.role = user.role;
                 token.id = user.id;
                 console.log('JWT token:', token); // Debugging line
@@ -52,7 +52,7 @@ export const authConfig: NextAuthOptions = NextAuth({
             return token;
         },        
         async session({ session, token }: any) {
-            session.user.email = token?.email as string;
+            // session.user.email = token?.email as string;
             session.user.fullName = token?.fullName as string;
             session.user.role = token?.role as string; // Ensure role is set here
             session.user.id = token?.id as string;

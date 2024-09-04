@@ -105,7 +105,7 @@ export default function Register() {
             <label className="block text-gray-700">Full Name</label>
             <input
               {...register("fullName")}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="w-full px-4 py-2 text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
             <p className="text-red-500">{errors.fullName?.message}</p>
           </div>
@@ -114,7 +114,7 @@ export default function Register() {
             <input
               type="email"
               {...register("email")}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="w-full px-4 py-2 text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
             <p className="text-red-500">{errors.email?.message}</p>
           </div>
@@ -123,7 +123,7 @@ export default function Register() {
             <input
               type="password"
               {...register("password")}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="w-full px-4 py-2 text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
             <p className="text-red-500">{errors.password?.message}</p>
           </div>

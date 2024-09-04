@@ -339,26 +339,25 @@ const CreateProductForm: FC = () => {
             <DialogContent className="sm:max-w-[425px] bg-white">
               <form
                 className="bg-white"
-                onSubmit={(e: any) => {
+                onSubmit={async (e: any) => {
                   e.preventDefault();
                   const title = e.target.title.value;
                   console.log(" title: ", title);
+                const response = await  axios.post(`/api/category`,{title,image:uploadedImage})
+                 console.log('response: ', response)
                 }}
               >
                 <DialogHeader>
                   <DialogTitle>Add Category</DialogTitle>
                 </DialogHeader>
-                <div className="grid gap-4 py-4">
-                  <div className="grid grid-cols-4 items-center gap-4">
+                <div className="grid  py-4">
+                  <div className="grid mb-2 grid-cols-4 items-center gap-4">
                     <Label htmlFor="name" className="text-right">
                       Name
                     </Label>
-                    <Input id="title" className="col-span-3" />
+                    <Input id="title" name="title" className="col-span-3" />
                   </div>
-                  <div className="grid grid-cols-1 items-center gap-4">
-                    <Label htmlFor="name" className="text-right">
-                      Name
-                    </Label>
+                  <div className="grid grid-cols-1 items-center gap-4"> 
                     <input
                       type="file"
                       multiple
